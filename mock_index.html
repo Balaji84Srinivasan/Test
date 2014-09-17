@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>BaaS Demo App</title>
+  <link rel="stylesheet" type="text/css" href="style.css" /> 
+  <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript">
+
+$(document).ready(function(){
+  $('.following').hover(function(){
+      $(this).text("Unfollow");
+    },function(){
+       $(this).text("Following");
+    });
+    $('.follow').click(function(){
+      $(this).toggleClass('following follow').unbind("hover");      
+      if($(this).is('.follow')){
+          $(this).text("Follow");
+      }
+      else{
+          $(this).bind({
+              mouseleave:function(){
+                  $(this).text("Following");
+              },
+              mouseenter:function(){
+                $(this).text("Unfollow");
+              }      
+          });
+        }
+    });
+});
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">
+    <a href="http://www.apigee.com">
+      <img src="img/apigee.png" alt="Apigee logo" title="Apigee logo" />
+    </a>
+    </h1>
+  <div class="usercontent"> 
+        Hello <b>Arthur!</b>
+  </div>
+<div class="content"> 
+<div class="item">
+	<a href="#">
+		<img class="avatar" src="img/smallred.png" />
+		<strong class="name">Bob</strong>
+		<span class="username ">@bob</span>
+	</a>
+	<span class="button follow" id='bob'>Follow</span>
+</div>
+<div class="item">
+	<a href="#">
+		<img class="avatar" src="img/small.png" />
+		<strong class="name">Chang</strong>
+		<span class="username ">@chang</span>
+	</a>
+	<span class="button follow" id='chang'>Follow</span>
+</div>
+<div class="item">
+	<a href="#">
+		<img class="avatar" src="img/smallred.png" />
+		<strong class="name">Dave</strong>
+		<span class="username ">@dave</span>
+	</a>
+	<span class="button follow" id='dave'>Follow</span>
+</div>
+</div>
+  </div>
+</body>
+</html>
+   
